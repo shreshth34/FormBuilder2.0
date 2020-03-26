@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,800');
+
+
+.App {
+  text-align: center;
+}
+
+.company-logo {
+  
+  margin-left: 15px;
+  margin-top: 7px;
+  margin-right: 358px;
+  
+}
+
+
+#basic_fields{
+
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top:  10px;
+}
+
+.ui.grid.my_grid{
+  
+  width: 500px;
+  margin-left: -5px;
+}
+
+.ui.fluid.icon.input{
+  height: 40px;
+  width: 503px; 
+  font-family: Roboto;
+  font-size: 14px;
+  line-height: 19px;
+  
+}
+
+
+.toolbox{
+
+    height: 1000px;
+    width: 503px;
+    background-color: #ECF1F5;
+    box-shadow: 0 1px 2px 0 rgba(34,36,38,0.15);
+  
+}
+
+.FormBuilderText {
+  height: 24px;
+  width: 111px;
+  color: #4A4A4A;
+  font-family: Roboto;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+#display_grid{
+  display:none;
+}
+
+.renderer{
+    width:900px;
+    padding: 20px;
+    margin-top: 100px;
+    margin-right: 500px;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(34,36,38,0.15);
+
+  }
