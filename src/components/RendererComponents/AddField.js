@@ -93,12 +93,20 @@ let rectangle1 = {
   boxShadow: "0 1px 2px 0 rgba(34,36,38,0.15)"
 };
 
+
+
 class AddField extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
+
+    const changeLabel1 = (e) => {
+      
+      this.props.changeLabel2(e.target.value)
+      
+    }
 
     if (this.props.addedField[0].uiElement === undefined) {
       return (
@@ -161,11 +169,11 @@ class AddField extends Component {
         );
       }
       else if (this.props.addedField[0].uiElement === "Dropdown") {
-        console.log("drop down called",this.props.addedField[0])
+
         return(
 
           <div>
-                <DropDown label={this.props.addedField[0].label} option={this.props.addedField[0].options} />
+                <DropDown id={this.props.id} label={this.props.addedField[0].label} option={this.props.addedField[0].options} changeLabel={changeLabel1} />
           </div>
        
        )

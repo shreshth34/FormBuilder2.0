@@ -3,12 +3,14 @@ import React, { Component } from 'react'
 export class DropDown extends Component {
     constructor(props){
         super(props)
+        
     }
     
     render() {
         return (
-        <div contentEditable="true">
-        <label>{this.props.label}</label> 
+        <div>
+        <p>Label <input type="text" onChange={this.props.changeLabel} /></p>
+        
             <select>
                     {this.props.option.map((e)=>{
                         return <option value={e}> {e}</option>

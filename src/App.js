@@ -89,37 +89,19 @@ class App extends Component {
         }
       ],
       FormFormat: [
-        
-        {
-          id: "xer4322Yw",
-          addedField: [{
-           
-          }]
-        },
-        {
-          id: "rteinc@te5",
-          addedField:[{
+       
+            {
+              id: "xer4322Yw",
+              addedField: [{}]
+            },
             
-          }]
-        },
-        // {
-        //   type: "Email",
-        //   id: 44,
-        //   uiElement:"Email",
-        //   addedField:[]
-        // },
-        // {
-        //   type: "Phone",
-        //   id: 55,
-        //   uiElement:"Number",
-        //   addedField:[]
-        // },
-        // {
-        //   type: "Resume",
-        //   id: 66,
-        //   uiElement:"File Upload",
-        //   addedField:[]
-        // },
+            {
+              id: "rteinc@te5",
+              addedField: [{}]
+            }
+
+          
+        
       ]
     };
   }
@@ -167,11 +149,6 @@ class App extends Component {
           elem.addedField[0].data_type = filt1[0].data_type;
           elem.addedField[0].uiElement = filt1[0].uiElement;
 
-          console.log(
-            "here is what we got in elem ater setting form filt",
-            elem
-          );
-
           return changeInsertState(elem);
         }
       });
@@ -198,16 +175,18 @@ class App extends Component {
 
       this.state.FormFormat.map(elem => {
         if (elem.id === displayArr) {
-
           elem.addedField[0].id = displayArr;
           elem.addedField[0].label = Basicfilt[0].label;
           elem.addedField[0].options = Basicfilt[0].options;
-          elem.addedField[0].uiElement = Basicfilt[0].type;          
+          elem.addedField[0].uiElement = Basicfilt[0].type;
 
-                    return changeInsertState(elem);
-
+          return changeInsertState(elem);
         }
       });
+    };
+
+    const changeLabel5 = p => {
+      console.log("final state with label of dropdown", p);
     };
 
     return (
@@ -230,6 +209,7 @@ class App extends Component {
               changed2={handleInput}
               changedDesc={handleDesc}
               insert={insertEvent}
+              changeLabel4={changeLabel5}
             />
           </div>
         </div>

@@ -32,22 +32,30 @@ export class Renderer extends Component {
   }
 
   render() {
-
+    const newRow = {
+      height: "19px",
+      width: "57px",
+      color: "#33A5C9",
+      fontFamily: "Roboto",
+      fontSize: "14px",
+      letterSpacing: "0",
+      lineHeight: "19px"
+    };
     const addNewRow = () => {
-      return this.props.changed({
-        id:`${Math.random()
-          .toString(36)
-          .substr(2, 9)}`,
-          addedField:[{}]
-       },
-       {
-        id:`${Math.random()
-          .toString(36)
-          .substr(2, 9)}`,
-          addedField:[{}]
-       },
-       );
-   
+      return this.props.changed(
+        {
+          id: `${Math.random()
+            .toString(36)
+            .substr(2, 9)}`,
+          addedField: [{}]
+        },
+        {
+          id: `${Math.random()
+            .toString(36)
+            .substr(2, 9)}`,
+          addedField: [{}]
+        }
+      );
     };
 
     const addNewColumn = () => {
@@ -71,6 +79,9 @@ export class Renderer extends Component {
       this.props.insert(x1);
     };
 
+    const changeLabel3 = e1 => {
+      this.props.changeLabel4(e1);
+    };
     return (
       <div className="renderer">
         <div className="header">
@@ -100,42 +111,47 @@ export class Renderer extends Component {
 
         <div className="ui equal width column stackable grid" align="center">
           {this.props.data.FormFormat.map(element => {
-            console.log("hello");
             if (element.pos === undefined) {
               return (
                 <div className="column">
+
                   <AddField
                     id={element.id}
                     addedField={element.addedField}
                     delete={deleteEvent}
                     key={element.id}
                     insert={insertEvent}
+                    changeLabel2={changeLabel3}
+                    
                   />
                   <br />
-                 
                 </div>
-                
               );
-            } else {
-              return <div className="row">
-
-                <AddField
-                    id={element.id}
-                    addedField={element.addedField}
+            } else if(typeof(element.pos) == "number") {
+              const rowNum = element.pos
+              console.log("row and rownum", element, element.pos)
+              return (                
+                <div className="row">
+                  <AddField
+                    id={element.Fields}
+                    addedField={element.Fields}
                     delete={deleteEvent}
-                    key={element.id}
+                    key={element.Fields}
                     insert={insertEvent}
+                    changeLabel2={changeLabel3}
                   />
+
                   <br />
-                
-              </div>;
+                </div>
+              );
             }
           })}
-           
         </div>
-        <button className="ui primary button" onClick={addNewRow}>
-                    New Row
-                  </button>
+        <br />
+        <div align="left" onClick={addNewRow}>
+          <i class="blue plus circle icon"></i>
+          <span style={newRow}>Add Row</span>
+        </div>
       </div>
     );
   }
