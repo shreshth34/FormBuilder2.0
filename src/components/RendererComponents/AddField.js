@@ -2,17 +2,9 @@ import React, { Component } from "react";
 import "/Users/Shreshth Juneja/Desktop/FormBuilder1.0-newAddingField/src/App.css";
 import Radium from "radium";
 import DropDown from "./DropDown";
+import Input from "./Input"
 
-const iconic = {
-  right: "40px",
-  width: "354.5px",
-  height: "30px",
-  color: "black",
-  boxShadow: "0 1px 2px 0 rgba(34,36,38,0.15)",
-  border: "1px solid #EEEEEE",
-  boxSizing: "border-box",
-  borderRadius: "4px"
-};
+
 
 const iconic7 = {
   margin: "1px",
@@ -130,19 +122,10 @@ class AddField extends Component {
             {/* <div className="ui card">
               <p onClick={() => this.props.delete(this.props.id)}>delete</p>
             </div> */}
-            <div style={addField} id={this.props.id} >
-              <span>
-                <i class="asterisk icon" style={asterisk}></i>
-                <label style={labelD} htmlFor={this.props.addedField[0].id}>
-                  {this.props.addedField[0].label}
-                </label>
-                <input
-                  style={iconic}
-                  type={this.props.addedField[0].data_type}
-                />
-              </span>
+              
+                <Input label={this.props.addedField[0].label} id={this.props.addedField[0].id} data_type={this.props.addedField[0].data_type} />
+              
               {/* <button onClick={()=>this.props.delete(this.props.id)}>delete</button> */}
-            </div>
           </div>
         );
       } else if (this.props.addedField[0].uiElement === "File Upload") {

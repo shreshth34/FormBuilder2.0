@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import Toolbox from "./components/Toolbox";
 import Renderer from "./components/Renderer";
-import AddField from "./components/RendererComponents/AddField";
 
 class App extends Component {
   constructor() {
@@ -89,19 +88,16 @@ class App extends Component {
         }
       ],
       FormFormat: [
-       
-            {
-              id: "xer4322Yw",
-              addedField: [{}]
-            },
-            
-            {
-              id: "rteinc@te5",
-              addedField: [{}]
-            }
+        {
+          id: "xer4322Yw",
+          addedField: [{}]
+        },
 
-          
-        
+        {
+          id: "rteinc@te5",
+          addedField: [{}]
+        },
+
       ]
     };
   }

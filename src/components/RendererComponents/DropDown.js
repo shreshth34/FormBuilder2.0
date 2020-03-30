@@ -11,9 +11,9 @@ export class DropDown extends Component {
         <div>
         <p>Label <input type="text" onChange={this.props.changeLabel} /></p>
         
-            <select>
+            <select >
                     {this.props.option.map((e)=>{
-                        return <option value={e}> {e}</option>
+                        return <option contentEditable="true" value={e}> {e}</option>
                     })}
             </select>       
             </div>

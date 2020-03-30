@@ -42,19 +42,21 @@ export class Renderer extends Component {
       lineHeight: "19px"
     };
     const addNewRow = () => {
-      return this.props.changed(
-        {
-          id: `${Math.random()
-            .toString(36)
-            .substr(2, 9)}`,
-          addedField: [{}]
-        },
-        {
-          id: `${Math.random()
-            .toString(36)
-            .substr(2, 9)}`,
-          addedField: [{}]
-        }
+      return (
+          this.props.changed(
+            {
+              id: `${Math.random()
+                .toString(36)
+                .substr(2, 9)}`,
+              addedField: [{}]
+            },
+            {
+              id: `${Math.random()
+                .toString(36)
+                .substr(2, 9)}`,
+              addedField: [{}]
+            }
+          )
       );
     };
 
@@ -100,10 +102,10 @@ export class Renderer extends Component {
             onChange={this.props.changedDesc}
           />
           <br />
-
+          {/* 
           <button className="ui primary button" onClick={addNewColumn}>
             New Column
-          </button>
+          </button> */}
         </div>
         <br />
         <br />
@@ -114,7 +116,6 @@ export class Renderer extends Component {
             if (element.pos === undefined) {
               return (
                 <div className="column">
-
                   <AddField
                     id={element.id}
                     addedField={element.addedField}
@@ -122,15 +123,14 @@ export class Renderer extends Component {
                     key={element.id}
                     insert={insertEvent}
                     changeLabel2={changeLabel3}
-                    
                   />
                   <br />
                 </div>
               );
-            } else if(typeof(element.pos) == "number") {
-              const rowNum = element.pos
-              console.log("row and rownum", element, element.pos)
-              return (                
+            } else if (typeof element.pos == "number") {
+              const rowNum = element.pos;
+              console.log("row and rownum", element, element.pos);
+              return (
                 <div className="row">
                   <AddField
                     id={element.Fields}
