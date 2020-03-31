@@ -101,10 +101,11 @@ export class Renderer extends Component {
             onChange={this.props.changedDesc}
           />
           <br />
-          {/* 
-          <button className="ui primary button" onClick={addNewColumn}>
+          
+          {/* <button className="ui primary button" onClick={addNewColumn}>
             New Column
           </button> */}
+
         </div>
         <br />
         <br />
@@ -126,8 +127,7 @@ export class Renderer extends Component {
                   insert={insertEvent}
                   changeLabel2={changeLabel3}
                 />
-                
-              
+                              
               );
             })}
             </div>

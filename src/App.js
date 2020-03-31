@@ -98,7 +98,7 @@ class App extends Component {
             id: "rteinc@te5",
             addedField: [{}]
           }
-        ],
+        ]
         // [
         //   {
         //     id: "newtvn3",
@@ -134,25 +134,26 @@ class App extends Component {
       });
     };
 
-    let displayArr = 0;
+    let displayArr ;
     let insertEvent = index => {
       const saveToId = index;
       displayArr = saveToId;
     };
 
-    const selectField1 = index1 => {
+    let selectField1 = index1 => {
       let filt1 = this.state.PredefinedFields.filter(e => {
         return e.id === index1;
       });
-      this.state.FormFormat.map(elem => {
-        if (elem.id === displayArr) {
-          elem.addedField[0].id = displayArr;
-          elem.addedField[0].label = filt1[0].label;
-          elem.addedField[0].data_type = filt1[0].data_type;
-          elem.addedField[0].uiElement = filt1[0].uiElement;
 
-          return changeInsertState(elem);
-        }
+      this.state.FormFormat.map(elem => {
+        elem.map(e1 => {
+          if (e1.id === displayArr) {
+            e1.addedField[0].label = filt1[0].label;
+            e1.addedField[0].data_type = filt1[0].data_type;
+            e1.addedField[0].uiElement = filt1[0].uiElement;
+            return changeInsertState(e1);
+          }
+        });
       });
     };
 
@@ -177,7 +178,6 @@ class App extends Component {
 
       this.state.FormFormat.map(elem => {
         if (elem.id === displayArr) {
-          elem.addedField[0].id = displayArr;
           elem.addedField[0].label = Basicfilt[0].label;
           elem.addedField[0].options = Basicfilt[0].options;
           elem.addedField[0].uiElement = Basicfilt[0].type;
@@ -190,7 +190,7 @@ class App extends Component {
     const changeLabel5 = p => {
       console.log("final state with label of dropdown", p);
     };
-    console.log("final state", this.state)
+    console.log("final state", this.state);
 
     return (
       <div className="ui App">

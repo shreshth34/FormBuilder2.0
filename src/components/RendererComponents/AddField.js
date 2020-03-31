@@ -101,7 +101,7 @@ class AddField extends Component {
     }
 
     if (this.props.addedField[0].uiElement === undefined) {
-      return (
+        return (
         <div style={outer1}>
           <div style={addField1} id={this.props.id}>
             <div style={iconic2}>
