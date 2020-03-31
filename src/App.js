@@ -88,16 +88,23 @@ class App extends Component {
         }
       ],
       FormFormat: [
-        {
-          id: "xer4322Yw",
-          addedField: [{}]
-        },
+        [
+          {
+            id: "xer4322Yw",
+            addedField: [{}]
+          },
 
-        {
-          id: "rteinc@te5",
-          addedField: [{}]
-        },
-
+          {
+            id: "rteinc@te5",
+            addedField: [{}]
+          }
+        ],
+        // [
+        //   {
+        //     id: "newtvn3",
+        //     addedField: [{}]
+        //   }
+        // ]
       ]
     };
   }
@@ -137,7 +144,6 @@ class App extends Component {
       let filt1 = this.state.PredefinedFields.filter(e => {
         return e.id === index1;
       });
-
       this.state.FormFormat.map(elem => {
         if (elem.id === displayArr) {
           elem.addedField[0].id = displayArr;
@@ -184,6 +190,7 @@ class App extends Component {
     const changeLabel5 = p => {
       console.log("final state with label of dropdown", p);
     };
+    console.log("final state", this.state)
 
     return (
       <div className="ui App">

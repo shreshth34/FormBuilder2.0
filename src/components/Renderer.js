@@ -42,22 +42,20 @@ export class Renderer extends Component {
       lineHeight: "19px"
     };
     const addNewRow = () => {
-      return (
-          this.props.changed(
-            {
-              id: `${Math.random()
-                .toString(36)
-                .substr(2, 9)}`,
-              addedField: [{}]
-            },
-            {
-              id: `${Math.random()
-                .toString(36)
-                .substr(2, 9)}`,
-              addedField: [{}]
-            }
-          )
-      );
+      return this.props.changed([
+        {
+          id: `${Math.random()
+            .toString(36)
+            .substr(2, 9)}`,
+          addedField: [{}]
+        },
+        {
+          id: `${Math.random()
+            .toString(36)
+            .substr(2, 9)}`,
+          addedField: [{}]
+        }
+      ]);
     };
 
     const addNewColumn = () => {
@@ -84,6 +82,7 @@ export class Renderer extends Component {
     const changeLabel3 = e1 => {
       this.props.changeLabel4(e1);
     };
+
     return (
       <div className="renderer">
         <div className="header">
@@ -112,39 +111,27 @@ export class Renderer extends Component {
         <br />
 
         <div className="ui equal width column stackable grid" align="center">
-          {this.props.data.FormFormat.map(element => {
-            if (element.pos === undefined) {
+          {this.props.data.FormFormat.map((element, index) => {
+            
+            return( 
+              <div className="row" id={index}>
+              {element.map(e => {
               return (
-                <div className="column">
-                  <AddField
-                    id={element.id}
-                    addedField={element.addedField}
-                    delete={deleteEvent}
-                    key={element.id}
-                    insert={insertEvent}
-                    changeLabel2={changeLabel3}
-                  />
-                  <br />
-                </div>
+              
+                <AddField
+                  id={e.id}
+                  addedField={e.addedField}
+                  delete={deleteEvent}
+                  key={e.id}
+                  insert={insertEvent}
+                  changeLabel2={changeLabel3}
+                />
+                
+              
               );
-            } else if (typeof element.pos == "number") {
-              const rowNum = element.pos;
-              console.log("row and rownum", element, element.pos);
-              return (
-                <div className="row">
-                  <AddField
-                    id={element.Fields}
-                    addedField={element.Fields}
-                    delete={deleteEvent}
-                    key={element.Fields}
-                    insert={insertEvent}
-                    changeLabel2={changeLabel3}
-                  />
-
-                  <br />
-                </div>
-              );
-            }
+            })}
+            </div>
+          )
           })}
         </div>
         <br />
