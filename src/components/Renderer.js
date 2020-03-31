@@ -68,6 +68,12 @@ export class Renderer extends Component {
       });
     };
 
+    const TableRow = {
+
+      marginLeft: "60px"
+
+    }
+
     const deleteEvent = x => {
       const filteredForm = this.props.data.FormFormat.filter(
         item => item.id !== x
@@ -115,7 +121,7 @@ export class Renderer extends Component {
           {this.props.data.FormFormat.map((element, index) => {
             
             return( 
-              <div className="row" id={index}>
+              <div className="row" id={index} style={TableRow}>
               {element.map(e => {
               return (
               

@@ -134,7 +134,7 @@ class App extends Component {
       });
     };
 
-    let displayArr ;
+    let displayArr;
     let insertEvent = index => {
       const saveToId = index;
       displayArr = saveToId;
@@ -174,16 +174,17 @@ class App extends Component {
       let Basicfilt = this.state.uiElements.filter(e => {
         return e.id === saveTheBasicId;
       });
-      console.log(Basicfilt);
 
       this.state.FormFormat.map(elem => {
-        if (elem.id === displayArr) {
-          elem.addedField[0].label = Basicfilt[0].label;
-          elem.addedField[0].options = Basicfilt[0].options;
-          elem.addedField[0].uiElement = Basicfilt[0].type;
+        elem.map(e2 => {
+          if (e2.id === displayArr) {
+            e2.addedField[0].label = Basicfilt[0].label;
+            e2.addedField[0].options = Basicfilt[0].options;
+            e2.addedField[0].uiElement = Basicfilt[0].type;
 
-          return changeInsertState(elem);
-        }
+            return changeInsertState(e2);
+          }
+        });
       });
     };
 
